@@ -1,0 +1,119 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e0e6d6; 
+}
+
+.booking-section {
+    background-color: #2e4c41;
+    color: white;
+    padding: 60px 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-card {
+    background-color: #f7f3f0; 
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+}
+
+.booking-header {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #f7f3f0;
+}
+
+.booking-subheader {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #d1d8c1;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2e4c41;
+    margin-bottom: 8px;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px 15px;
+    color: #2e4c41;
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid #ced4da;
+    cursor: pointer;
+}
+
+.btn-reserve {
+    background-color: #c98c6d;
+    color: white;
+    font-weight: 600;
+    padding: 12px 25px;
+    border-radius: 8px;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.btn-reserve:hover {
+    background-color: #b37a5c;
+    color: white;
+}
+
+.help-text {
+    color: #2e4c41;
+    font-size: 0.9rem;
+    margin-top: 30px;
+}
+
+.help-text a {
+    color: #c98c6d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.help-text a:hover {
+    text-decoration: underline;
+}
+
+.calendar-icon {
+    cursor: pointer;
+}
+
+.flatpickr-calendar {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 8px;
+}
+.flatpickr-months .flatpickr-prev-month,
+.flatpickr-months .flatpickr-next-month {
+    color: #c98c6d;
+}
+.flatpickr-weekday {
+    color: #2e4c41;
+}
+.dayContainer .flatpickr-day.selected,
+.dayContainer .flatpickr-day.startRange,
+.dayContainer .flatpickr-day.endRange,
+.dayContainer .flatpickr-day.selected.inRange,
+.dayContainer .flatpickr-day.startRange.inRange,
+.dayContainer .flatpickr-day.endRange.inRange {
+    background: #c98c6d;
+    border-color: #c98c6d;
+}
+.dayContainer .flatpickr-day.inRange {
+    background: #f0d5c8;
+    border-color: #f0d5c8;
+}

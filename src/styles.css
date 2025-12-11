@@ -1,1 +1,118 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --color-dark-green: #1e3637;
+  --color-medium-green: #467c6b;
+  --color-light-green: #bad293;
+  --color-bright-green: #579843;
+  --color-beige: #cea982;
+
+  --color-text-bg: rgba(246, 243, 239, 0.92);
+  --color-bg-light: #f9f6f2;
+  --color-text-card-body: #f6f3ef;
+  --color-text-normal: #555;
+  --color-text-link: #d49a6a;
+  --color-card-border: #e8e4db;
+}
+
+body {
+  padding-top: 70px;
+}
+
+.navbar {
+  padding-top: 0.5rem;
+  padding-bottom: 1.4rem;
+  transition: background-color 0.4s ease-out, box-shadow 0.4s ease-out;
+  background-color: #202c44 !important;
+  box-shadow: none !important;
+}
+
+/* 2. El estado "Scrolled" (cuando se baja) */
+.navbar.nav-scrolled {
+  background-color: #202c44 !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 3. Estilo del Logo */
+.hero-logo {
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 0;
+  /* Bootstrap añade padding, lo quitamos */
+}
+
+.hero-logo img.logo {
+  height: 40px;
+  /* Ajusta la altura de tu logo */
+  width: auto;
+  vertical-align: middle;
+}
+
+.hero-logo:hover {
+  transform: scale(1.05);
+}
+
+/* 4. Estilo de los links de la Nav */
+.navbar .nav-link {
+  color: #ffffff;
+  font-weight: 500;
+  margin-left: 1rem;
+  /* Espacio entre links */
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+  opacity: 1;
+}
+
+/* 5. Aseguramos el padding de la nav (Bootstrap usa container-fluid) */
+.navbar .container-fluid {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* 6. Arreglo responsivo */
+@media (max-width: 991px) {
+  /* Este es el breakpoint 'lg' de Bootstrap */
+
+  /* En móvil, el padding del body es menor */
+  body {
+    padding-top: 60px;
+    /* Ajusta a la altura de tu nav móvil */
+  }
+
+  .navbar .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero-logo img.logo {
+    height: 35px;
+    /* Logo más pequeño en móvil */
+  }
+
+  /* Estilos para el menú desplegable en móvil.
+    Le damos el fondo oscuro para que se vea bien.
+  */
+  .navbar-collapse {
+    /* Solo aplica el fondo cuando está en modo móvil */
+    background-color: var(--color-dark-green);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .navbar .nav-link {
+    margin-left: 0;
+    padding: 0.5rem 0;
+  }
+}
+
+html {
+  /* Hace que el scroll sea suave al dar clic */
+  scroll-behavior: smooth;
+
+  /* Compensa la altura de tu navbar fija (ajusta los 80px según la altura real de tu menú) */
+  scroll-padding-top: 90px;
+}

@@ -1,0 +1,23 @@
+.btn-language {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-left: 1rem;
+}
+
+.btn-language:hover {
+    background: white;
+    color: var(--color-dark-green, #1e3637);
+    border-color: white;
+    transform: scale(1.05);
+}
+
+.btn-language i {
+    margin-right: 4px;
+}

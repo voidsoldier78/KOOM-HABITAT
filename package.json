@@ -22,12 +22,20 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^21.0.0",
     "@angular/common": "^20.3.0",
     "@angular/compiler": "^20.3.0",
     "@angular/core": "^20.3.0",
+    "@angular/fire": "^20.0.1",
     "@angular/forms": "^20.3.0",
     "@angular/platform-browser": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "bootstrap": "^5.3.8",
+    "firebase": "^12.6.0",
+    "flatpickr": "^4.6.13",
+    "lucide-angular": "^0.552.0",
+    "ngx-flatpickr": "^1.0.7",
+    "or": "^0.2.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
@@ -42,6 +50,12 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "tailwindcss": "^4.1.17",
     "typescript": "~5.9.2"
-  }
+  },
+  "styles": [
+    "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "node_modules/flatpickr/dist/flatpickr.min.css",
+    "src/styles.scss"
+  ]
 }

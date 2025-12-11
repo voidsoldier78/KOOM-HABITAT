@@ -1,0 +1,137 @@
+:root {
+  --color-dark-green: #1e3637;   
+  --color-medium-green: #467c6b; 
+  --color-beige: #cea982;         
+  
+  
+  --color-bg-light-beige: #f9f6f2;
+  --color-card-border: #e8e4db;   
+  --color-text-normal: #555;      
+}
+
+.carousel-item {
+  height: 95vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1{
+  color: #467c6b;
+}
+
+.fondo{
+  background-color: #ece4d9;
+}
+
+/* Título de la Sección */
+.amenities-section {
+  padding: 6rem 0;
+  background-color: #ece4d9; /* Un fondo ligeramente gris para que resalte */
+}
+
+.amenities-section .section-title h2 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 2.8rem;
+  color: var(--color-dark-green); /* Usando tu variable global */
+  font-weight: 600;
+}
+
+/* Contenedor de cada amenidad */
+.amenity-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  height: 400px; /* Altura fija para que ambas cajas sean iguales */
+}
+
+.amenity-item:hover {
+  transform: translateY(-5px);
+}
+
+.amenity-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Asegura que la imagen llene el contenedor */
+  transition: transform 0.4s ease;
+}
+
+.amenity-item:hover img {
+  transform: scale(1.05); /* Zoom sutil al pasar el mouse */
+}
+
+/* Overlay de descripción */
+.amenity-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 76, 65, 0.8); /* Verde oscuro semi-transparente */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  opacity: 0; /* Empieza oculto */
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* No bloquea el click a la imagen subyacente */
+  border-radius: 12px;
+}
+
+/* Muestra el overlay al pasar el mouse o si showDesc es true */
+.amenity-item:hover .amenity-overlay,
+.amenity-item .amenity-overlay[style*="opacity: 1"] { /* Hack para detectar el `opacity` de Angular */
+    opacity: 1 !important;
+    pointer-events: auto; /* Permite interacción si está visible */
+}
+
+.amenity-overlay .amenity-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.amenity-overlay .amenity-text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  max-width: 80%;
+}
+
+
+/* ===========================================
+   Botón Flotante de WhatsApp
+   =========================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366; /* Color oficial de WhatsApp */
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 60px; /* Centra el icono verticalmente */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  display: flex; /* Para centrar el icono */
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-float:hover {
+  background-color: #1da851; /* Un poco más oscuro al pasar el mouse */
+  transform: scale(1.08);
+}

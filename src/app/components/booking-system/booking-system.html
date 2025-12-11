@@ -1,0 +1,13 @@
+<div class="col-12">
+    <label class="form-label">Check-in / Check-out</label>
+    <div class="input-group">
+        <input type="text" 
+               class="form-control" 
+               placeholder="Selecciona tus fechas" 
+               #datePickerInput 
+               readonly>
+        
+        <span class="input-group-text" (click)="openCalendar()" style="cursor: pointer;">
+            <i class="bi bi-calendar"></i> </span>
+    </div>
+</div>

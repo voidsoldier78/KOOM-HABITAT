@@ -1,0 +1,56 @@
+<footer class="koom-footer">
+  <div class="container">
+    <div class="row py-5">
+      
+      <!-- Logo y Descripción -->
+      <div class="col-lg-5 col-md-12 mb-4 mb-lg-0">
+        <h3 class="footer-brand">KOOM Habitat</h3>
+        
+        <!-- Usamos ui().desc -->
+        <p class="footer-desc mt-3" [innerHTML]="ui().desc"></p>
+        
+        <div class="social-icons mt-4">
+          <a href="https://www.instagram.com/koomhabitattulum?igsh=OW81ejFtNmVpY3oz" class="social-btn me-2"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61583045880648" class="social-btn"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <!-- Links de Información -->
+      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        <h5 class="footer-heading">{{ ui().infoTitle }}</h5>
+        <ul class="list-unstyled mt-3">
+          <li><a href="#hero" class="footer-link">{{ ui().linkHome }}</a></li>
+          <li><a href="#ubicacion" class="footer-link">{{ ui().linkLocation }}</a></li>
+          <li><a href="#galeria" class="footer-link">{{ ui().linkSpaces }}</a></li>
+          <li><a href="#departamentos" class="footer-link">{{ ui().linkDepts }}</a></li>
+          <li><a href="#reserva" class="footer-link">{{ ui().linkBook }}</a></li>
+        </ul>
+      </div>
+
+      <!-- Links Legales -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-heading">{{ ui().legalTitle }}</h5>
+        <ul class="list-unstyled mt-3">
+          <li><a href="#" class="footer-link">{{ ui().linkPrivacy }}</a></li>
+          <li><a href="#" class="footer-link">{{ ui().linkTerms }}</a></li>
+          <li><a href="#" class="footer-link">{{ ui().linkCookies }}</a></li>
+          <li><a href="#" class="footer-link">{{ ui().linkContact }}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="footer-divider">
+
+    <!-- Copyright -->
+    <div class="row py-3 copyright-section">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-0">{{ ui().copyright }}</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <p class="mb-0">
+          {{ ui().madeWith }} <i class="bi bi-heart-fill text-danger"></i> en la Riviera Maya
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>

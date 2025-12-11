@@ -1,0 +1,8 @@
+<button (click)="translationService.toggleLanguage()" class="btn-language">
+  @if (translationService.currentLang() === 'es') {
+     <i class="fa-solid fa-globe"></i> ES
+  } @else {
+     <i class="fa-solid fa-globe"></i> EN
+  }
+</button>
+

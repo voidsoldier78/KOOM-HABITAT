@@ -1,0 +1,54 @@
+<section class="amenities-section" id="amenidades">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center section-title mb-5">
+        
+        <!-- Título dinámico desde la señal -->
+        <h2>{{ ui().title }}</h2>
+        
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- AMENIDAD 1 -->
+      <div class="col-lg-6 col-md-10">
+        <!-- Accedemos a ui().amenities[0] -->
+        <div class="amenity-item" *ngIf="ui().amenities[0] as amenity"
+             (mouseenter)="showDescription(amenity)" 
+             (mouseleave)="hideDescription()"
+             (click)="toggleDescription(amenity)">
+             
+          <img [src]="amenity.image" [alt]="amenity.title" class="img-fluid rounded-3">
+          
+          <div class="amenity-overlay rounded-3" [class.show]="amenity.showDesc">
+            <h3 class="amenity-title">{{ amenity.title }}</h3>
+            <p class="amenity-text">{{ amenity.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- AMENIDAD 2 -->
+      <div class="col-lg-6 col-md-10">
+        <!-- Accedemos a ui().amenities[1] -->
+        <div class="amenity-item" *ngIf="ui().amenities[1] as amenity"
+             (mouseenter)="showDescription(amenity)" 
+             (mouseleave)="hideDescription()"
+             (click)="toggleDescription(amenity)">
+             
+          <img [src]="amenity.image" [alt]="amenity.title" class="img-fluid rounded-3">
+          
+          <div class="amenity-overlay rounded-3" [class.show]="amenity.showDesc">
+            <h3 class="amenity-title">{{ amenity.title }}</h3>
+            <p class="amenity-text">{{ amenity.description }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/+5215519261720" class="whatsapp-float" target="_blank">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>

@@ -1,0 +1,226 @@
+<section class="apartment-gallery-section" id="galeria">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 text-center section-title">
+        <!-- SEÑALES con () -->
+        <h2>{{ ui().titulo_principal }}</h2>
+        <p>{{ ui().subtitulo }}</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Loop sobre la SEÑAL apartments() -->
+      <div *ngFor="let apt of apartments()" class="col-12 col-md-6 col-lg-4">
+        <div class="apartment-card h-100" style="cursor: pointer;" data-bs-toggle="modal"
+          data-bs-target="#apartmentModal" (click)="selectApartment(apt)">
+
+          <div class="card-image-wrapper">
+            <img [src]="apt.imageSrc" class="card-img" [alt]="apt.title">
+            <div class="card-text-overlay">
+              <h3>{{ apt.title }}</h3>
+              <div class="info-badges">
+                <span class="badge">
+                  <i class="fa-solid fa-bed"></i> {{ apt.rooms }} Hab
+                </span>
+                <span class="badge">
+                  <i class="fa-solid fa-user-group"></i> {{ apt.people }} Pers
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal fade" id="apartmentModal" tabindex="-1" aria-labelledby="apartmentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+
+    <div class="modal-content" *ngIf="selectedApartment">
+
+      <div class="modal-header border-0 p-0">
+        <button type="button" class="btn-close-modal" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="modal-body p-4">
+
+        <ng-container *ngIf="viewMode === 'details'">
+          <div class="row h-100">
+
+            <div class="col-lg-8 modal-left-column d-flex flex-column">
+              <h2 class="modal-title mb-3">{{ selectedApartment.title }}</h2>
+
+              <div class="row g-3 mb-4">
+                <div class="col-md-8">
+                <div class="main-image-container animate-fade">
+  
+  <video *ngIf="isVideo(currentAptImage)" 
+         [src]="currentAptImage" 
+         class="img-fluid rounded-3 w-100 h-100 object-fit-cover" 
+         controls 
+         autoplay 
+         muted 
+         loop>
+  </video>
+
+  <img *ngIf="!isVideo(currentAptImage)" 
+       [src]="currentAptImage" 
+       class="img-fluid rounded-3 w-100 h-100 object-fit-cover"
+       [alt]="selectedApartment.title">
+
+</div>
+                </div>
+                <div class="col-md-4">
+                  <div
+                    class="description-ribbon p-3 h-100 rounded-3 d-flex align-items-center justify-content-center text-center">
+                    <p class="m-0 fst-italic text-white animate-text">
+                      "{{ currentAptText }}"
+                    </p>
+                  </div>
+                </div>
+              </div>
+<div class="row g-2 mb-4 thumbnails-row">
+  
+  <div class="col-3 col-sm-2">
+    <div class="thumbnail-placeholder p-0 border-0 overflow-hidden rounded-2"
+      [class.active-thumb]="currentAptImage === selectedApartment.imageSrc" 
+      (click)="resetAptMain()"
+      style="cursor: pointer; position: relative;">
+      
+      <img [src]="selectedApartment.imageSrc" class="w-100 h-100 object-fit-cover">
+    </div>
+  </div>
+
+  <div class="col-3 col-sm-2" *ngFor="let item of selectedApartment.gallery">
+    <div class="thumbnail-placeholder p-0 border-0 overflow-hidden rounded-2"
+      [class.active-thumb]="currentAptImage === item.src" 
+      (click)="selectAptGalleryItem(item)"
+      style="cursor: pointer; position: relative;">
+
+      <ng-container *ngIf="isVideo(item.src)">
+        <video [src]="item.src" class="w-100 h-100 object-fit-cover" muted></video>
+        
+        <div class="position-absolute top-50 start-50 translate-middle text-white" 
+             style="pointer-events: none; text-shadow: 0 2px 4px rgba(0,0,0,0.6);">
+          <i class="fa-solid fa-play-circle fa-2x"></i>
+        </div>
+      </ng-container>
+
+      <img *ngIf="!isVideo(item.src)" [src]="item.src" class="w-100 h-100 object-fit-cover">
+
+    </div>
+  </div>
+
+</div>
+
+              <div class="details-section mt-auto">
+                <h4 class="section-subtitle">{{ ui().modal_amenidades }}</h4>
+                <ul class="amenities-list-simple">
+                  <li *ngFor="let amenity of selectedApartment.amenities">{{ amenity }}</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-lg-4 modal-right-column">
+              <div
+                class="price-includes-box p-4 rounded-3 text-center text-white h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <h3 class="price-box-title mb-4">{{ ui().modal_precio_incluye }}</h3>
+                  <ul class="includes-list list-unstyled mb-4">
+                    <li>{{ ui().modal_noches }}</li>
+
+                    <li class="clickable-service" (click)="openServiceDetail('auto')">
+                      <b>{{ ui().serv_auto }}</b> <i class="fa-solid fa-car ms-2"></i>
+                    </li>
+
+                    <li class="clickable-service" (click)="openServiceDetail('desayuno')">
+                      <b>{{ ui().serv_desayuno }}</b> <i class="fa-solid fa-mug-hot ms-2"></i>
+                    </li>
+
+                    <li class="clickable-service" (click)="openServiceDetail('equipado')">
+                      <b>{{ ui().serv_depa }}</b> <i class="fa-solid fa-house ms-2"></i>
+                    </li>
+                  </ul>
+                </div>
+                <div class="season-buttons mb-4">
+                  <div class="row g-2">
+                    <div class="col-6">
+                      <button class="btn btn-season w-100">{{ ui().btn_baja }}</button>
+                      <div class="season-price-box mt-1 bg-white text-dark rounded-2 p-2"><strong>${{
+                          selectedApartment.price }}</strong></div>
+                    </div>
+                    <div class="col-6">
+                      <button class="btn btn-season w-100">{{ ui().btn_alta }}</button>
+                      <div class="season-price-box mt-1 bg-white text-dark rounded-2 p-2"><strong>${{
+                          selectedApartment.price * 1.3 | number:'1.0-0' }}</strong></div>
+                    </div>
+                  </div>
+                </div>
+                <a 
+  [href]="selectedApartment.bookingLink" 
+  target="_blank" 
+  class="btn btn-reservar-large w-100 py-2 fs-5 fw-bold text-decoration-none d-block text-center">
+  {{ ui().btn_reservar }}
+</a>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-container *ngIf="viewMode === 'service' && selectedService">
+          <div class="service-view-container h-100 d-flex flex-column">
+            <div class="text-center mb-4">
+              <h2 class="section-title-service">{{ ui().titulo_servicios }}</h2>
+              <h3 class="service-name text-muted">{{ selectedService.title }}</h3>
+            </div>
+            <div class="row flex-grow-1 align-items-center justify-content-center">
+              <div class="col-md-7 mb-3 mb-md-0">
+                <div class="service-main-image border-green p-2 rounded-3 animate-fade">
+                  <img [src]="currentServiceImage" class="img-fluid w-100 h-100 object-fit-cover rounded-2">
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div
+                  class="description-ribbon service-ribbon p-4 rounded-3 d-flex align-items-center justify-content-center text-center h-100">
+                  <p class="m-0 text-white fs-5 animate-text">{{ currentServiceText }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="row mt-4 align-items-end">
+              <div class="col-md-8">
+                <div class="row g-2">
+                  <div class="col-3 col-sm-2">
+                    <div class="service-thumb border-green rounded-2 p-1"
+                      [class.active-thumb]="currentServiceImage === selectedService.image" (click)="resetToMain()"
+                      style="cursor: pointer;">
+                      <img [src]="selectedService.image" class="w-100 h-100 object-fit-cover rounded-1"
+                        style="opacity: 0.8">
+                    </div>
+                  </div>
+                  <div class="col-3 col-sm-2" *ngFor="let item of selectedService.gallery">
+                    <div class="service-thumb border-green rounded-2 p-1"
+                      [class.active-thumb]="currentServiceImage === item.src" (click)="selectGalleryItem(item)"
+                      style="cursor: pointer;">
+                      <img [src]="item.src" class="w-100 h-100 object-fit-cover rounded-1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 text-end">
+                <button class="btn btn-back-apartments w-100 py-3 fw-bold" (click)="backToApartment()">
+                  {{ ui().btn_volver }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+
+      </div>
+    </div>
+  </div>
+</div>

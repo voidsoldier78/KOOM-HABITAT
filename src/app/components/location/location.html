@@ -1,0 +1,99 @@
+<section class="location-section colorfondo">
+  <div class="container">
+    
+    <div class="row">
+      <div class="col-12 text-center section-title color">
+        <h2>{{ ui().mainTitle }}</h2>
+        <p>{{ ui().subTitle }}</p>
+      </div>
+    </div>
+
+    <div class="row g-5 align-items-center">
+      
+      <div class="col-lg-6">
+        <div class="location-map-placeholder z-depth-5">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3744.564667603701!2d-87.47920112588707!3d20.193843481254696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f4fd783b724fb33%3A0x237d72f651eaf869!2sKOOM%20Tulum!5e0!3m2!1ses!2smx!4v1762984300060!5m2!1ses!2smx" width="100%" height="100%" style="border-radius: 2.5rem;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="location-info-wrapper">
+          
+          <div class="location-info-item d-flex mb-4">
+            <div class="flex-shrink-0">
+              <i class="fa-solid fa-location-arrow info-icon"></i>
+            </div>
+            <div class="flex-grow-1 ms-4 colorsub">
+              <h3 class="colorsub">{{ ui().directAccessTitle }}</h3>
+              <p>{{ ui().accessText }}</p>
+            </div>
+          </div>
+
+          <div class="location-info-item d-flex">
+            <div class="flex-shrink-0">
+              <i class="fa-solid fa-location-dot info-icon"></i>
+            </div>
+            <div class="flex-grow-1 ms-4 colorsub w-100">
+              <h3 class="colorsub mb-3">{{ ui().nearbyTitle }}</h3>
+              
+              <div class="d-grid gap-3">
+  <button *ngFor="let item of ui().nearbyList" 
+          class="btn-location-minimal"
+          type="button" 
+          data-bs-toggle="modal" 
+          data-bs-target="#infoModal"
+          (click)="selectedItem = item">
+    
+    <div class="d-flex align-items-center gap-3">
+      <div class="time-badge">
+        <i class="fa-regular fa-clock"></i>
+        <span>{{ item.time }}</span>
+      </div>
+      
+      <div class="text-start">
+        <h6 class="mb-0 fw-bold item-name">{{ item.name }}</h6>
+      </div>
+    </div>
+    
+    <i class="fa-solid fa-arrow-right-long arrow-icon"></i>
+  </button>
+</div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0" style="border-radius: 1.5rem; overflow: hidden;">
+        
+        <div class="position-relative" *ngIf="selectedItem">
+            <div style="height: 250px; background-color: #eee; overflow: hidden;">
+               <img [src]="selectedItem.image" 
+                    class="w-100 h-100" 
+                    style="object-fit: cover;" 
+                    alt="{{ selectedItem.name }}"
+                    onerror="this.src='https://placehold.co/600x400?text=Imagen+No+Disponible'"> 
+            </div>
+            
+            <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white p-2 shadow" data-bs-dismiss="modal" aria-label="Close" (click)="clearSelection()"></button>
+            
+            <span class="badge bg-primary position-absolute bottom-0 start-0 m-3 fs-6 shadow">
+              {{ selectedItem.time }}
+            </span>
+        </div>
+
+        <div class="modal-body p-4" *ngIf="selectedItem">
+          <h3 class="colorsub fw-bold mb-2">{{ selectedItem.name }}</h3>
+          <p class="text-secondary">{{ selectedItem.description }}</p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,0 +1,86 @@
+/* Fuente base (asegúrate de tenerla importada en styles.css o index.html) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Playfair+Display:wght@700&display=swap');
+
+.koom-footer {
+  background-color: #202c44; /* El verde oscuro de la imagen */
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 40px;
+}
+
+/* Título de la marca */
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #f7f3f0; /* Tono crema claro */
+}
+
+/* Descripción */
+.footer-desc {
+  color: #d1d8c1; /* Un verde muy claro/grisáceo para lectura suave */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 90%;
+}
+
+/* Títulos de columnas (Información, Legal) */
+.footer-heading {
+  font-weight: 700;
+  color: #f7f3f0;
+  font-size: 1.1rem;
+}
+
+/* Enlaces */
+.footer-link {
+  color: #d1d8c1;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #c98c6d; /* Naranja al pasar el mouse */
+  text-decoration: none;
+}
+
+/* Botones de Redes Sociales (Círculos naranjas) */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #c98c6d; /* Color ladrillo/naranja de la imagen */
+  color: white;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.social-btn:hover {
+  background-color: #b07b5f; /* Un poco más oscuro al hover */
+  transform: translateY(-3px);
+  color: white;
+}
+
+/* Línea divisoria */
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 0;
+}
+
+/* Sección inferior */
+.copyright-section {
+  font-size: 0.85rem;
+  color: #aab5a5; /* Texto más tenue para el footer */
+}
+
+/* Corazón rojo */
+.bi-heart-fill {
+  font-size: 0.8rem;
+  margin: 0 3px;
+  color: #c98c6d !important; /* Usamos el naranja de la marca en lugar de rojo puro */
+}
